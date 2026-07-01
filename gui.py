@@ -29,27 +29,22 @@ except ImportError:
 BASE_DIR = os.path.dirname(__file__)
 DB_PATH = os.path.join(BASE_DIR, "database", "face_db.db")
 
-# -----------------------------
 # Window
-# -----------------------------
 root = tk.Tk()
 root.title("Face Identification and Attendance Management System")
 root.geometry("1200x760")
 root.configure(bg="#EAF2F8")
 root.resizable(False, False)
 
-# -----------------------------
+
 # Colors
-# -----------------------------
 HEADER = "#F01616"
 BTN = "#1ABC22"
 BTN_HOVER = "#16A085"
 BG = "#EAF2F8"
 
 
-# -----------------------------
 # Header
-# -----------------------------
 header = tk.Frame(root, bg=HEADER, height=80)
 header.pack(fill="x")
 
@@ -62,9 +57,7 @@ title = tk.Label(
 )
 title.pack(pady=18)
 
-# -----------------------------
 # Clock
-# -----------------------------
 clock_label = tk.Label(
     root,
     font=("Arial", 14, "bold"),
@@ -84,15 +77,13 @@ def update_clock():
 
 update_clock()
 
-# -----------------------------
+
 # Left Panel
-# -----------------------------
 left = tk.Frame(root, bg="#D6EAF8", width=300)
 left.pack(side="left", fill="y")
 
-# -----------------------------
+
 # Status Label
-# -----------------------------
 status = tk.Label(
     left,
     text="STATUS : READY",
@@ -140,9 +131,8 @@ camera_photo = None
 recognition_thread = None
 recognition_stop_event = threading.Event()
 
-# -----------------------------
+
 # Functions
-# -----------------------------
 def register_face():
 
     set_status("STATUS : Registering Face")
@@ -462,9 +452,7 @@ def reset_attendance():
         set_status("STATUS : READY")
 
 
-# -----------------------------
 # Button Style
-# -----------------------------
 def hover_in(e):
     e.widget["bg"] = BTN_HOVER
 
@@ -505,9 +493,8 @@ create_button("Export Excel", export_excel)
 create_button("Reset Attendance", reset_attendance)
 create_button("Exit", root.destroy)
 
-# -----------------------------
-# Right Panel
-# -----------------------------
+
+# Right Panel-
 right = tk.Frame(root, bg=BG)
 right.pack(fill="both", expand=True)
 
